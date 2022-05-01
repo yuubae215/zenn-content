@@ -31,10 +31,18 @@ pipであれば以下でインストールできます。
 `pip install opcua`
 
 
-:::details クライアント側アプリ
-ちなみに、クライアント側のアプリでUaExpertというアプリがあります。
+:::details 動作確認用クライアント側アプリ
+最初はどういった代物なのかわからなかったので、ネットにあるアプリを頼りました。
+クライアント側のアプリでUaExpertというアプリがあります。
 これも[Unified-Automation](https://www.unified-automation.com/downloads.html)のサイトから「OPC UA Client」→「UaExpert」でダウンロードできます。
 (なお、後述のコード中にあるノードの調べ方がわからなかったので今回はこのアプリで調べました。)
+
+[追記]
+freeopcuaがgithubに載せている、`Simple OPC-UA GUI client`というアプリもありました。
+`pip install opcua-client`でインストールし、`opcua-client`で起動できます。
+これの便利なところは、簡単にデータをグラフ表示できるところです。
+ノードリストで右クリックをするとメニューにグラフ追加が表示されます。
+更新間隔は`Interval`で調整可能です。
 :::
 
 ### スクリプト
