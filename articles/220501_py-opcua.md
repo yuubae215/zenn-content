@@ -3,7 +3,7 @@ title: "PythonでOPC-UA"
 emoji: "🎉"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Python, opcua]
-published: false
+published: true
 ---
 # やりたいこと
 PythonからOPC-UAに接続したい。
