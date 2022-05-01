@@ -82,7 +82,7 @@ finally:
 (`myvar.get_value()`でノードの値だけを取り出すこともできます。)
 
 それでは、このスクリプトを実行してみます。
-### 実行結果
+## 実行結果
 特にエラーなければ以下の出力が得られるはずです。
 ```py
 cryptography is not installed, use of crypto disabled
