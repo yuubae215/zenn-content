@@ -3,7 +3,7 @@ title: "jupyterlab variable inspectorのインストール"
 emoji: "🔅"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [jupyterlab]
-published: false
+published: true
 ---
 ## jupyterlab_variableinspector
 コードを書くとき普段はVSCodeを愛用していますが、何やらこのような記事を発見しました。
