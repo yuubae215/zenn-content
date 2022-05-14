@@ -1,9 +1,9 @@
 ---
-title: "WSLにROS2を構築しWindowsから通信する"
+title: "WSLにROS2環境を構築しWindowsから通信する"
 emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["python", "ROS2", "roslibpy", "rosbridge"]
-published: false
+published: true
 ---
 
 ROSを使ったロボットやその他デバイスは動かしたいけど、Ubuntuは管理したくない
@@ -31,7 +31,7 @@ A--tcp protocol-->B--ros protocol-->C
 ```
 
 ## 本ページの目標
-ROS2ノードのturtlesimをroslibpyで制御することで通信環境を構築できたとします。
+ROS2ノードのturtlesimをroslibpyで制御することを目標としたいと思います。
 
 ## 環境
 以下の環境で実行しました。
