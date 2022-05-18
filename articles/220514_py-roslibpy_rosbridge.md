@@ -162,7 +162,7 @@ xeyes
 こんな感じでギョロメが出たらOKです。
 これでWSLでGUIが有効になりました。
 
-# ROS
+# ROS環境の構築
 これまでに構築したWSL上にROS環境を構築します。
 ## ROS2のインストール
 今回は**ROS2**をインストールしていきます。
@@ -242,7 +242,7 @@ ros2 run turtlesim turtlesim_node
 
 あとは、ROS2側とつながるWindow側クライアントを実装していきましょう。
 
-## Pythonクライアントスクリプト
+## Windows側ROS通信クライアント
 👇このかたのサイトを参考に、クライアント用pythonスクリプトからturtlesimへ指示を出します。(参考に、というかほぼ丸パクリです...)
 https://symfoware.blog.fc2.com/blog-entry-2288.html
 
