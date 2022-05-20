@@ -22,13 +22,15 @@ WSLのUbuntu上でrosbridgeとROS2を実行し、通信を行う。
 
 通信イメージは以下のようだと思っています。(下図で知識レベルは察してください)
 ```mermaid
-flowchart LR
+graph LR
     subgraph Windows
-    A([roslibpy])
-    end
-    subgraph Ubuntu on WSL
-    B([rosblidge])
-    C([ROS2 node])
+        subgraph Python
+            A([roslibpy])
+        end
+        subgraph Ubuntu on WSL
+            B([rosblidge])
+            C([ROS2 node])
+        end
     end
 
 A--tcp protocol-->B--ros protocol-->C
@@ -53,7 +55,7 @@ wsl --install
 ```
 基本的にはこれだけでインストールできます。
 インストール後は、Linuxパスワードの設定が必要です。
-w
+
 :::message
 私の時は上記コマンドでUbuntu20.04がインストールされていましたが、今はどうなのかわかりません。
 自分が何をインストールしたかはbashで以下コマンドを打ち込んで確認してみてください。
