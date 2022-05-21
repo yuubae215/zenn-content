@@ -3,7 +3,7 @@ title: "CODESYS Raspberry Pi Runtime上にOPC-UAサーバを立てる"
 emoji: "🏭"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CODESYS", "RaspberryPi"]
-published: false
+published: true
 ---
 
 # CODESYSとは？
