@@ -22,13 +22,15 @@ WSLのUbuntu上でrosbridgeとROS2を実行し、通信を行う。
 
 通信イメージは以下のようだと思っています。(下図で知識レベルは察してください)
 ```mermaid
-flowchart LR
+graph LR
     subgraph Windows
-    A([roslibpy])
-    end
-    subgraph Ubuntu on WSL
-    B([rosblidge])
-    C([ROS2 node])
+        subgraph Python
+            A([roslibpy])
+        end
+        subgraph Ubuntu on WSL
+            B([rosblidge])
+            C([ROS2 node])
+        end
     end
 
 A--tcp protocol-->B--ros protocol-->C
@@ -53,7 +55,7 @@ wsl --install
 ```
 基本的にはこれだけでインストールできます。
 インストール後は、Linuxパスワードの設定が必要です。
-w
+
 :::message
 私の時は上記コマンドでUbuntu20.04がインストールされていましたが、今はどうなのかわかりません。
 自分が何をインストールしたかはbashで以下コマンドを打ち込んで確認してみてください。
@@ -162,7 +164,7 @@ xeyes
 こんな感じでギョロメが出たらOKです。
 これでWSLでGUIが有効になりました。
 
-# ROS
+# ROS環境の構築
 これまでに構築したWSL上にROS環境を構築します。
 ## ROS2のインストール
 今回は**ROS2**をインストールしていきます。
@@ -242,7 +244,7 @@ ros2 run turtlesim turtlesim_node
 
 あとは、ROS2側とつながるWindow側クライアントを実装していきましょう。
 
-## Pythonクライアントスクリプト
+## Windows側ROS通信クライアント
 👇このかたのサイトを参考に、クライアント用pythonスクリプトからturtlesimへ指示を出します。(参考に、というかほぼ丸パクリです...)
 https://symfoware.blog.fc2.com/blog-entry-2288.html
 
