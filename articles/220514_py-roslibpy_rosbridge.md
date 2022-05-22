@@ -160,7 +160,7 @@ VcXsrvの設定ができたら、以下で動作確認をしてみましょう�
 ```bash:bash
 xeyes
 ```
-![](/images/ss_2205141307.png)
+![](/images/art03_py-roslibpy_rosbridge/ss_2205141307.png)
 こんな感じでギョロメが出たらOKです。
 これでWSLでGUIが有効になりました。
 
@@ -186,7 +186,7 @@ ROS2がインストールできたか確認してみましょう。
 ros2 run turtlesim turtlesim_node
 ```
 こんな感じでkameがVcXsrvのWindowに映し出されたでしょうか？
-![](/images/ss_2205142022.png)
+![](/images/art03_py-roslibpy_rosbridge/ss_2205142022.png)
 
 ひとまずkameさんに出会えたなら、WSLのROS2環境構築は完了です。
 
@@ -306,13 +306,13 @@ python sample.py
 ```
 どうですか？
 kameがくるくると泳いでる様子が見れたでしょうか？
-![](/images/gif_2205142126.gif)
+![](/images/art03_py-roslibpy_rosbridge/gif_2205142126.gif)
 
 ちなみに、`rqt`で起動しているノードを確認することができます。
 ```bash:bash
 rqt_graph
 ```
-![](/images/ss_2205142147.png)
+![](/images/art03_py-roslibpy_rosbridge/ss_2205142147.png)
 rosbridgeがturtlesimに対して速度指示を送信していることがわかりますね！
 送信メッセージの`linear`や`angular`の値を変えるとkameの軌道が変わると思います。
 ぜひ試してみててください👍
