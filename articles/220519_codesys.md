@@ -71,7 +71,7 @@ https://www.okdo.com/getstarted/
 
 一応手順通りの絵があるので、ほぼ迷わないはずですが、
 途中、FANのピンアサインの項目で👇のような説明書きありますが、微妙に絵の差し込んでるピンがずれてて怖かったです。
-![](/images/ss_2205190053.png)
+![](/images/art04_codesys/ss_2205190053.png)
 👇こんな注意書きもあるけど、公式に書いてあるのは注意書き自体の字もずれてて最初のスペル読めないし…
 :::message
 warning
@@ -80,7 +80,7 @@ Ensure that the fan’s leads are connected to the correct pins
 
 せっかく手に入れられたのに壊したら嫌なので、データシート一応見ておきましょう。
 https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-datasheet.pdf
-![](/images/ss_2205190046.png)
+![](/images/art04_codesys/ss_2205190046.png)
 *Figure 3: GPIO Connector Pinout*
 2, 6pinはそれぞれ5V, GNDですので電線の色と整合はとれていそうですね。
 ただのモータだったら、たとえ逆に配線しても逆に回るだけだと思いますがICなど載っている場合もあるので説明書に従って意図通りに配線していきます。
@@ -118,6 +118,9 @@ ifconfig
 左から3Byte目は同じにし、
 4Byte目は双方かぶらないようにしてください。
 また、Raspberry Piで予約するIPはルーターのDHCP設定範囲外の設定にしましょう。
+:::message
+私は有線LANのインターフェースがなかったので無線にしましたが、ローカルでやったほうがトラブルは少ないと思います。ローカル接続でやる場合は、ネットワークアダプタの`eth0`を設定してください。
+:::
 
 設定後はアダプタをリセットしないと設定が反映されないので、RebootとPingでの開通確認は忘れずに。
 ```bash: Reboot
@@ -174,6 +177,10 @@ IDEはインストール出来たとして、
 Runtimeは4.4.0がLINXさんのダウンロードページにはないので、CODESYS Storeからダウンロードしてください。
 https://store.codesys.com/en/codesys-control-for-raspberry-pi-mc-sl.html
 
+[2022/05/22追記]
+CODESYS Installerの`Change`=>`Browse`から`CODESYS Control for Raspberry Pi`を選択しても、4.4.0のインストールはできそうでした。
+![](/images/art04_codesys/ss_2205222230.png)
+
 :::message
 LINXさんのページのIDEとRuntimeでもできますが、その場合はRaspberry Pi OSをBuster(Regacy OS)まで落としてください。4.2.0だとBullseyeでは正常動作しません。
 :::
@@ -182,13 +189,13 @@ LINXさんのページのIDEとRuntimeでもできますが、その場合はRas
 まずは全てのアプリから`CODESYS`=>`CODESYS Installer`を実行しましょう。
 
 `Changes`を押してください。
-![](/images/ss_2205210111.png)
+![](/images/art04_codesys/ss_2205210111.png)
 
 `Install Files`から、Runtime 4.4.0を選択してください。=>OK
-![](/images/ss_2205210112.png)
+![](/images/art04_codesys/ss_2205210112.png)
 
 ライセンスを確認し、`Continue`を押してください。
-![](/images/ss_2205210114.png)
+![](/images/art04_codesys/ss_2205210114.png)
 
 `Updating Package Manager...`とCODESYSのパッケージマネージャが更新されます。
 (CODESYSを開いていると閉じてくださいとポップアップされるのであらかじめ閉じておきましょう)
@@ -200,13 +207,13 @@ LINXさんのページのIDEとRuntimeでもできますが、その場合はRas
 `CODESYS`=>`CODESYS V3.5 SP17 Patch2`を実行しましょう。
 
 `ツール`=>`Update Raspberry Pi`を押します。
-![](/images/ss_2205210130.png)
+![](/images/art04_codesys/ss_2205210130.png)
 
 すると、左下のタブに`Raspberry Pi`というタブが新たに追加されます。
-![](/images/ss_2205210131.png)
+![](/images/art04_codesys/ss_2205210131.png)
 
 以下のように設定していってください。
-![](/images/ss_2205210132_edit.png)
+![](/images/art04_codesys/ss_2205210132_edit.png)
 Raspberry Piのデフォルトユーザネームとパスワードを使っている場合、
 `Username`に`pi`
 `Password`に`raspberry`
@@ -215,17 +222,17 @@ Raspberry Piのデフォルトユーザネームとパスワードを使って�
 ここまで設定し、`Install`を押すと、CODESYSがRuntimeをRaspberry Piにインストールしにいきます。
 その後ログが流れますが、流れ終わったら画面下のほうの`System`から`System Info`を押してみてください。
 
-![](/images/ss_2205210133.png)
+![](/images/art04_codesys/ss_2205210133.png)
 `Package Info`にRuntimeのver.が4.4.0になっていることが確認できれば、インストールができています。
 
 ## CODESYSプロジェクトの作成
 
 `ファイル`=>`新規プロジェクト`を選択し、任意のフォルダにプロジェクトを作成してください。
 `デバイス`と`PLC_PRG`の設定は下記のように設定してください。
-![](/images/ss_2205210135.png)
+![](/images/art04_codesys/ss_2205210135.png)
 
 プロジェクトが作成されると、下記のように左側のツリーにプロジェクト内に作成されたオブジェクトが表示されるようになります。
-![](/images/ss_2205210137.png)
+![](/images/art04_codesys/ss_2205210137.png)
 ここで、ツリー上の`Device`をダブルクリックして、上の画面を出してください。
 
 一番右の絵に対応するデバイスがRaspberry Piですので、設定したIPを設定します。
@@ -233,11 +240,11 @@ Raspberry Piのデフォルトユーザネームとパスワードを使って�
 接続しようとしたときにポップアップが出ます。
 
 設定したら、下図のようにログインポップアップが出ますので、設定したものを入れてログインしてください。
-![](/images/ss_2205210138.png)
+![](/images/art04_codesys/ss_2205210138.png)
 
 ## 証明書の発行
 `表示`からセキュリティ画面を押してください。
-![](/images/ss_2205210141.png)
+![](/images/art04_codesys/ss_2205210141.png)
 `Information`から`Device`を押すと、右側の画面にCerticicationが出ます。
 左と右の画面の間にあるボタンの一番上のボタンを押してください。
 するとCertificationが発行されます。
@@ -252,18 +259,18 @@ OPC-UAサーバを構築はこちらの記事を参考にさせていただき�
 http://soup01.com/ja/2020/08/09/codesys-opcuaserver/
 
 `Application`を右クリックし、`オブジェクトの追加`=>`シンボル構成`を選択してください。
-![](/images/ss_2205210142.png)
+![](/images/art04_codesys/ss_2205210142.png)
 
 設定はデフォルトで特に問題ありませんが、`OPC UA機能をサポート`がチェックされていることを確認してください。
-![](/images/ss_2205210143.png)
+![](/images/art04_codesys/ss_2205210143.png)
 
 `シンボル構成`のタブが出てきますので、とりあえずビルドボタンを押してみましょう。
 すると、下のようにCODESYSで初期から定義されている変数が表示されます。
-![](/images/ss_2205210144.png)
+![](/images/art04_codesys/ss_2205210144.png)
 
 ## PLC_PRGの実装
 特に実装ということもないですが、下のように記述してみてください。
-![](/images/ss_2205211219.png)
+![](/images/art04_codesys/ss_2205211219.png)
 上が、変数宣言ウィンドウで、下がプログラミングウィンドウのようです。
 処理自体は単純にインクリメントしているだけです。
 
@@ -281,14 +288,14 @@ END_VER
 プログラムが書けたので、実行してみましょう。
 実行はRaspberry Pi上に載せたRuntime上で実行されます。
 ログインボタンを押してRaspberry Piにログインしてください。
-![](/images/ss_2205211220.png)
+![](/images/art04_codesys/ss_2205211220.png)
 
 ログインボタンの2つ右にある再生ボタンを押すと、下のように`PLC_PRG`のタブを選択したときの画面に、icountの実行中の値がリアルタイムに表示されます。
-![](/images/ss_2205211221.png)
+![](/images/art04_codesys/ss_2205211221.png)
 Raspberry Pi上でプログラムが実行されていることが確認できました。
 
 ここで`シンボル構成`タブを再度開き、ビルドしなおしてください。
-![](/images/ss_2205211222.png)
+![](/images/art04_codesys/ss_2205211222.png)
 今度は、先ほど追加した`icount`が`PLC_PRG`の中にあるかと思います。
 これがOPC-UAで通信するためのデータとなります。
 
@@ -303,7 +310,7 @@ Raspberry Pi上でプログラムが実行されていることが確認でき�
 opc.tcp://192.168.0.120:4840
 ```
 すると、URIが表示され左側に`>`があるので押して中身を開いてください。
-![](/images/ss_2205211233.png)
+![](/images/art04_codesys/ss_2205211233.png)
 上のように`None`を選択してください。
 `None`は証明書も鍵も不要な暗号化なしの通信方式です。
 下側に`Authentication Setting`があるので、**CODEYSからRaspberry Pi Runtimeにログインするときに設定したユーザネームとパスワード**を設定してください。
@@ -315,7 +322,7 @@ URIが追加出来たら、プラグマークが画面上部にあるので押�
 左下の画面にデータの階層構造が表示されるので、
 `Objects`=>`DeviceSet`=>`CODESYS Control for Raspberry Pi MC SL`=>`Resources`=>`Application`=>`Programs`=>`PLC_PRG`=>`icount`
 のところまでいって、`icount`をドラッグアンドドロップで右側の画面まで持って行ってください。
-![](/images/ss_2205211236.png)
+![](/images/art04_codesys/ss_2205211236.png)
 すると、CODESYS側で定義した`icount`がリアルタイムで表示されます。
 上のようにCODESYS上の表示と同期していることがわかりますね！
 
