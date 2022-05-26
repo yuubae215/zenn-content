@@ -12,14 +12,10 @@ CODESYSはソフトウェアPLCです。
 これが、OPC-UAサーバになり、さらにEtherCAT Masterの役目も果たすため都合が良いです。
 今回はRaspberryPiランタイムを使用して、その上にCODESYSプログラムが実行できる環境を構築していくことにします。
 
-以下の図は日本代理店であるLINXさんのHPからの引用です。
+日本代理店である[LINXさんのHP](https://linx.jp/product/codesys/)の絵がわかりやすいです。
 異なるプラットフォーム上に様々な機能を載せられ、それを統合して開発できることが特徴のようです。
-![接続例](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://linx.jp/wordpress/wp-content/themes/linx_2021/img/product/codesys/codesys/img01.png)
-*引用：https://linx.jp/product/codesys/*
 
-下図のように、一般的なPCのOS上にもラインタイムを載せればCODESYSが実行できますし、独自プラットフォームへの組み込みも可能との説明書きがありました。
-![ランタイムソフトウェア](https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://linx.jp/wordpress/wp-content/themes/linx_2021/img/product/codesys/codesys/img03.png)
-*引用：https://linx.jp/product/codesys/*
+一般的なPCのOS上にもラインタイムを載せればCODESYSが実行できますし、独自プラットフォームへの組み込みも可能との説明書きがありました。
 
 ## 構成図
 最終的に想定する構成は下図のようになります。
