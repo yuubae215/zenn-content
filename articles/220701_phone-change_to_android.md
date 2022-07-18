@@ -3,7 +3,7 @@ title: "iPhone=>Androidにしました"
 emoji: "🍎"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["iphone", "android"]
-published: false
+published: true
 ---
 私はiPhone5SがYmobileで販売されるようになってからのiPhoneユーザでした。
 iPhone5S(Ymobile) => iPhone8(Softbank) => iPhone11 Pro(Softbank)とiPhone内で機種変更を繰り返して来ましたが、つい1か月ほど前思い立ってAndroidにしました。
