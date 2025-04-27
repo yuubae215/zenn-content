@@ -1,0 +1,14 @@
+title: "ビジネスプロセスモデリング完全ガイド：BPMN、CMMN、DMNの理解と活用"
+summary: "ビジネスプロセスモデリングの3大標準であるBPMN、CMMN、DMNの概念や活用方法、相互関連性を徹底解説。実践的な例と図解でわかりやすく学べるガイドブックです。"
+topics: ["BPMN", "CMMN", "DMN", "BPM", "モデリング"]
+published: true
+price: 0
+chapters:
+  - introduction
+  - bpmn-basics
+  - cmmn-basics
+  - dmn-basics
+  - model-relationships
+  - practical-examples
+  - tools-and-implementation
+  - conclusion
