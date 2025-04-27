@@ -1,0 +1,15 @@
+title: "ゼロからはじめるプログラミング入門"
+summary: "プログラミング未経験者向けに、基本概念から実践的なコーディングまでを解説する入門書"
+topics: ["プログラミング", "JavaScript", "入門", "Web開発"]
+published: false
+price: 0
+chapters:
+  - introduction
+  - programming-basics
+  - javascript-fundamentals
+  - control-flow
+  - functions
+  - data-structures
+  - dom-basics
+  - practical-project
+  - next-steps
